@@ -1,8 +1,10 @@
 /*
 
+!/.bin
 
-!/.gitignore
 !/.config
 /.config/*
 !/.config/nvim
 !/.config/alacritty
+
+!/.gitignore

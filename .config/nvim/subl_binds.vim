@@ -25,8 +25,16 @@ function! s:swap_down()
     exec n + 1
 endfunction
 
+" Move lines
 noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
 noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
-"vnoremap <silent> <c-s-up> :call <SID>swap_up()<CR>
-"vnoremap <silent> <c-s-down> :call <SID>swap_down()<CR>
 
+inoremap <silent> <c-s-up> <C-O>:call <SID>swap_up()<CR>
+inoremap <silent> <c-s-down> <C-O>:call <SID>swap_down()<CR>
+
+vnoremap <silent> <c-s-up> :call <SID>swap_up()<CR>
+vnoremap <silent> <c-s-down> :call <SID>swap_down()<CR>
+
+" Duplicate line
+"nnoremap <c-s-n> yyP
+"inoremap <c-s-n> <C-O>yy<C-O>P<End>

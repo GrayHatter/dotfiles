@@ -102,6 +102,7 @@ nnoremap <Leader>v :vs<CR>
 nnoremap <Leader>h :vs<CR>
 nnoremap <Leader>t 0d$
 nnoremap <silent> <Leader>w :write<CR>
+nmap <silent> <leader>d :bp\|bd #<CR>
 
 " seriously... fuck you q
 nnoremap <silent> q <Nop>

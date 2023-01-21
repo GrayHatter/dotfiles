@@ -1,0 +1,44 @@
+[user]
+	email = gitconfig@gr.ht
+	name = Gregory Mullen
+	signingkey = A
+[push]
+	default = current
+[alias]
+	g     = log -n20 --all --color --graph --pretty=format:'%C(auto)%h%C(auto)%d%C(reset) %C(dim green)(%cr)%C(reset) -- %C(white)%s'
+	graph = log --all --color --graph --pretty=format:'%C(auto)%h%C(auto)%d%C(reset) %C(green)(%cr)%C(reset)%n	%C(white)%s %C(bold black)--%an%C(reset) %C(red)%G?%C(reset)%w(0,6,6)%+b'
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !'git lg1'
+	gl = !'git lg1'
+	co = checkout
+	st = status
+	s = status
+	mt = mergetool
+	d = difftool -y -x icdiff
+	l = log --oneline
+	p = push
+	fix = commit -a --fixup
+	pf = push --force
+	quickfix = !git commit -a --amend --no-edit && git push --force
+	fixup = commit -a --fixup HEAD
+	recommit = commit -S --amend --no-edit
+	ff = merge
+	amend = commit -a --amend --no-edit
+	ds = diff --stat
+	f = fetch
+	fa = fetch --all
+	sw = switch
+[merge]
+	tool = meld
+[core]
+	editor = nvim
+[commit]
+	gpgsign = false
+[rebase]
+	autoSquash = true
+[rerere]
+	enabled = true
+[diff]
+	algorithm = histogram
+[init]
+	defaultBranch = main

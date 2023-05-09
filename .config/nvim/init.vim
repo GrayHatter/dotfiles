@@ -92,10 +92,19 @@ syntax on
 
 let mapleader=" "
 let g:netrw_ftp_cmd="ftp -p"
-let g:gruvbox_contrast_dark = 'hard'
-let g:airline#extensions#tabline#enabled = 1
 
-syntax on                   " syntax highlighting
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#middle_click_preserves_windows = 1
+
+
+let g:workspace_autocreate = 1
+let g:workspace_autosave = 0
+let g:workspace_session_directory = $HOME . '/.cache/nvim/sessions/'
+let g:workspace_session_disable_on_args = 1
+let g:workspace_persist_undo_history = 0
+
 
 augroup Mkdir
   autocmd!

@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+systemctl --user stop pipewire-pulse.service
+systemctl --user stop wireplumber.service
+systemctl --user stop pipewire.service
+
+systemctl --user start pipewire.service
+systemctl --user start wireplumber.service
+systemctl --user start pipewire-pulse.service
+

@@ -19,10 +19,12 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Plug 'thaerkh/vim-workspace'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'thaerkh/vim-workspace'
 
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'ziglang/zig.vim'
 
 "Plug 'shougo/deoplete.nvim'
 "Plug 'nvim-lua/completion-nvim'
@@ -35,7 +37,6 @@ Plug 'neovim/nvim-lspconfig'
 "Plug 'hrsh7th/cmp-cmdline'
 "Plug 'hrsh7th/nvim-cmp'
 
-Plug 'ziglang/zig.vim'
 
 call plug#end()
 

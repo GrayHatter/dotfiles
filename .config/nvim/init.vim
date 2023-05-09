@@ -106,6 +106,9 @@ let g:workspace_session_disable_on_args = 1
 let g:workspace_persist_undo_history = 0
 
 
+let g:zig_fmt_parse_errors = 0
+
+
 augroup Mkdir
   autocmd!
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")

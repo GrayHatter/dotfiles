@@ -278,9 +278,22 @@ require('lspconfig')['pylsp'].setup{
     }
 }
 
+local util = require 'lspconfig.util'
+local root_files = {
+  'compile_commands.json',
+  '.clangd',
+  '.clang-tidy',
+  '.clang-format',
+  'compile_flags.txt',
+  'configure.ac', -- AutoTools
+}
 require('lspconfig')['clangd'].setup{
     on_attach = on_attach,
-    filetypes = { "c", "cpp", "objc", "objcpp" }
+    filetypes = { "c", "h", "cpp", "hpp", "objc", "objcpp" },
+    root_dir = function(fname)
+      return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
+    end,
+    single_file_support = true,
 }
 
 EOF

@@ -212,16 +212,18 @@ nnoremap <C-Down> <C-W><Down>
 " Suggested LSP config
 :lua <<EOF
 
-vim.o.updatetime = 250
+vim.o.updatetime = 150
 --vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
+--vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 vim.diagnostic.config({
+  float = false,
   virtual_text = false,
-  signs = false,
+  signs = true,
   underline = true,
   update_in_insert = true,
-  severity_sort = false,
+  severity_sort = true,
 })
+
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)

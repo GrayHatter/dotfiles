@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+WS_NAME="100"
+
+while swaymsg -t get_tree | jq -e ".nodes[] | select(.type==\"output\").nodes[]| select(.type==\"workspace\") | .name | select(.==\"${WS_NAME}\")"; do
+	WS_NAME=`expr $WS_NAME + 1`
+done
+
+swaymsg workspace $WS_NAME
+
+
+

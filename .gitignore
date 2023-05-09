@@ -5,6 +5,9 @@
 !/.config
 /.config/*
 !/.config/nvim
+
 !/.config/alacritty
+/.config/alacritty/themes
+# themes is it's own git repo 
 
 !/.gitignore

@@ -301,4 +301,4 @@ EOF
 source ~/.config/nvim/subl_binds.vim
 "source ~/.config/nvim/nvim-cmp-conf.vim
 source ~/.config/nvim/zls.vim
-
+source ~/.config/nvim/treesitter.lua

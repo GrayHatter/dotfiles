@@ -138,19 +138,28 @@ nnoremap <silent> <Leader>c :s/FIXME<CR>
 " Clear some force of habits
 vnoremap <C-c> "+y
 
-
 " nnoremap <C-n>     :tabnew<CR>
 " inoremap <C-n>     <Esc>:tabnew<CR>
 
+
 " FZF
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <leader>j :Jumps<CR>
-nnoremap <silent> <leader>c :Changes<CR>
-nnoremap <silent> <Leader>m :Marks<CR>
-nnoremap <silent> <Leader><S-w> :Windows<CR>
-nnoremap <silent> <Leader>h :Helptags<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>l :BLines<CR>
+" I may switch back to ff, but I'm trying telescope for a while
+" nnoremap <silent> <Leader>f :Files<CR>
+" nnoremap <silent> <leader>j :Jumps<CR>
+" nnoremap <silent> <Leader>m :Marks<CR>
+" nnoremap <silent> <Leader><S-w> :Windows<CR>
+" nnoremap <silent> <Leader>h :Helptags<CR>
+" nnoremap <silent> <Leader>b :Buffers<CR>
+" nnoremap <silent> <Leader>l :BLines<CR>
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Happens more than it should
+cnoreabbrev W w
+"cnoreabbrev q qa
 
 " Custom
 nnoremap <expr> <Home> col(".") == match(getline("."), "\\S") + 1 ? '0' : '^'

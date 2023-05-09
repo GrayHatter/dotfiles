@@ -169,7 +169,15 @@ nnoremap <Leader>v :vs<CR>
 nnoremap <Leader>h :vs<CR>
 nnoremap <Leader>t 0d$
 nnoremap <silent> <Leader>w :write<CR>
-nnoremap <silent> <Leader>d :bp\|bd #<CR>
+
+" delete bufffer
+nnoremap <silent> <Leader>d :bp\|sp\|bn\|bd<CR>
+
+" TRailing spaces
+nnoremap <silent> <Leader>tr :%s/\s\+$//e<CR>
+
+" Line Context -or- Line Number
+nnoremap <silent> <Leader>lc :let @+ = expand("%").':'.line(".")."  `".getline(".")."`"<CR>
 nnoremap <silent> <Leader>ln :let @+ = expand("%").':'.line(".")<CR>
 
 " seriously... fuck you q

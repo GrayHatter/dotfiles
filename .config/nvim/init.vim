@@ -40,7 +40,6 @@ Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
-set termguicolors
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
 set ignorecase              " case insensitive
@@ -53,6 +52,7 @@ set wildmode=longest,list   " get bash-like tab completions
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard
 set ttyfast                 " Speed up scrolling in Vim
+set nocul
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 set backupdir=~/.cache/nvim " Directory to store backup files.

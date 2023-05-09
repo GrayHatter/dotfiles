@@ -115,6 +115,26 @@ augroup Mkdir
 augroup END
 
 
+
+" These are near gruvbox colors, this changes the bg color for the currently
+" active window I needed better signal about which buffer I was currently
+" working in :) 
+hi ActiveWindow guibg=#1d2021
+hi InactiveWindow guibg=#1b1d1f
+"hi ActiveWindow guibg=#1b1d1f
+"hi InactiveWindow guibg=#1d2021
+set winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+
+augroup FocusedMode
+    autocmd!
+    "autocmd WinEnter * set cul
+    "autocmd WinLeave * set nocul
+    autocmd WinEnter * set relativenumber
+    autocmd WinLeave * set norelativenumber
+    autocmd InsertEnter * set cul
+    autocmd InsertLeave * set nocul
+augroup END
+
 " I'd like to have auto folding, but it's too distracting currently :/
 " augroup vimrc
 "   au BufReadPre * setlocal foldmethod=indent

@@ -114,10 +114,26 @@ augroup Mkdir
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
 
-"augroup vimrc
-"  au BufReadPre * setlocal foldmethod=indent
-"  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-"augroup END
+
+" I'd like to have auto folding, but it's too distracting currently :/
+" augroup vimrc
+"   au BufReadPre * setlocal foldmethod=indent
+"   au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+" augroup END
+
+"set foldlevel=99
+
+
+nnoremap <expr> <Leader>s <SID>change_word_under_cursor()
+vnoremap <expr> <Leader>s <SID>change_word_under_cursor()
+fu! s:change_word_under_cursor() abort
+    let word = expand('<cword>')
+    let subwords = split(word, word =~# '_' ? '_' : '\ze\u')
+    return ':%s/\v' . join(map(subwords, '"(" . v:val . ")"'), word =~# '_' ? '_' : '') . '//g' . "\<Left>\<Left>"
+endfu
+
+
+nnoremap <silent> <Leader>c :s/FIXME<CR>
 
 " Clear some force of habits
 vnoremap <C-c> "+y

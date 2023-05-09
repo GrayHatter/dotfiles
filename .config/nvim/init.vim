@@ -40,10 +40,11 @@ Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
+set termguicolors
 set nocompatible            " disable compatibility to old-time vi
-set showmatch               " show matching 
-set ignorecase              " case insensitive 
-set hlsearch                " highlight search 
+set showmatch               " show matching
+set ignorecase              " case insensitive
+set hlsearch                " highlight search
 set incsearch               " incremental search
 set number                  " add line numbers
 set relativenumber

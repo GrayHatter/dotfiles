@@ -31,12 +31,8 @@
     #general: Alacritty
   #decorations_theme_variant: None
 
-#scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
-  #history: 10000
-
-  # Scrolling distance multiplier.
+scrolling:
+  history: 10000
   #multiplier: 3
 
 font:

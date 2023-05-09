@@ -60,8 +60,35 @@ set spell spelllang=en_us
 filetype plugin indent on
 filetype plugin on
 
-colorscheme gruvbox
+set nofixendofline
+
+set fo+=t
+set tw=80
+set cinoptions=-(1s
 set background=dark
+set vb t_vb=
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set colorcolumn=95
+
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_itilic = 1
+let g:gruvbox_hls_cursor = 'blue'
+let g:gruvbox_number_column = 'bg0'
+let g:gruvbox_color_column = 'bg0'
+let g:gruvbox_dim_inactive_windows = 1
+colorscheme gruvbox
+syntax on
+
 
 let mapleader=" "
 let g:netrw_ftp_cmd="ftp -p"

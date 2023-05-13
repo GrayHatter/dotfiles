@@ -1,8 +1,6 @@
 /*
 
 !/.bin
-/.bin/twitch-stream
-# added in the stream key, lets hope I don't forget if I need to modify it :D
 
 !/.config
 /.config/*
@@ -13,3 +11,8 @@
 # themes is it's own git repo 
 
 !/.gitignore
+
+/.gitconfig
+# git update-index ../../.gitconfig --skip-worktree 
+/.bin/twitch-stream
+# git update-index ../../.bin/twitch-stream --skip-worktree 

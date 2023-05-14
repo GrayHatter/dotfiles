@@ -9,7 +9,9 @@
 	graph = log --all --color --graph --pretty=format:'%C(auto)%h%C(auto)%d%C(reset) %C(green)(%cr)%C(reset)%n	%C(white)%s %C(bold black)--%an%C(reset) %C(red)%G?%C(reset)%w(0,6,6)%+b'
 	gl = log --graph --abbrev-commit --decorate --format=format:'%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	co = checkout
-	commit-to = !git commit && read -p \"New branch name: \" newbranch && git checkout -b $newbranch && git checkout main && git reset --mixed HEAD^
+	commit-to = !git commit && read -p \"New branch name: \" newbranch && git checkout -b $newbranch && git checkout - && git reset --mixed HEAD^
+	hide = update-index --skip-worktree
+	unhide = update-index --no-skip-worktree
 	st = status
 	s = status
 	mt = mergetool

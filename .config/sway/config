@@ -1,0 +1,196 @@
+set $mod Mod4
+floating_modifier $mod
+
+# Input 
+input type:keyboard {
+    xkb_layout us
+    xkb_options compose:menu
+}
+
+# Output is moved into the `hostname` file
+include ~/.config/sway/`hostname`
+
+for_window [shell="xwayland"] title_format "[X] %title"
+for_window [instance="mpc"] fullscreen enable
+for_window [instance="pavucontrol"] floating enable
+# some apps don't enjoy being tiled
+for_window [instance="feh"] floating enable
+for_window [instance="qemu-system-x86_64"] floating enable
+for_window [instance="steam"] floating enable 
+
+set $idle-ten 'swaymsg "output * dpms off"'
+set $idle-resume 'swaymsg "output * dpms on"'
+exec swayidle -w timeout 600 $idle-ten resume $idle-resume
+
+# Style
+font pango:Source Code Pro Regular 10
+
+set $border   #665c54
+set $bkgnd    #1d2021
+set $text     #fe8019
+set $text-alt #edbdd2
+set $red      #cc241d
+set $red-text #282828
+
+client.focused          $border $text     $bkgnd
+client.focused_inactive $border $bkgnd    $text
+client.placeholder      $border $text     $bkgnd
+client.urgent           $border $red-text $red
+
+smart_borders on
+hide_edge_borders both
+
+bar {
+    position top
+    status_command i3status
+    tray_output DP-2
+}
+
+# important binds
+bindsym $mod+Return exec alacritty
+bindsym $mod+Escape kill
+
+# sway 
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+## exec keybinds
+bindsym $mod+Shift+m    exec 'exec urxvt -hold -e /usr/bin/pianobar'
+bindsym $mod+d          exec wofi -S run
+bindsym $mod+p          exec pavucontrol
+bindsym $mod+Shift+s    exec screenshot.sh
+
+# special keybinds
+bindsym XF86AudioRaiseVolume    exec amixer -q set Master 2%+ unmute
+bindsym XF86AudioLowerVolume    exec amixer -q set Master 2%-
+bindsym XF86AudioMute           exec amixer -q set Master mute
+bindsym XF86AudioPlay           exec mpc toggle
+bindsym XF86AudioNext           exec mpc next
+bindsym XF86AudioPrev           exec mpc prev
+
+# window nav
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+f fullscreen toggle
+# full screen across all screens
+bindsym $mod+Shift+f fullscreen toggle global
+bindsym $mod+minus scratchpad show, resize set 1300 900, move absolute cursor
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# default workspaces
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Control+1 workspace 11
+bindsym $mod+Control+2 workspace 12
+bindsym $mod+Control+3 workspace 13
+bindsym $mod+Control+4 workspace 14
+bindsym $mod+Control+5 workspace 15
+bindsym $mod+Control+6 workspace 16
+bindsym $mod+Control+7 workspace 17
+bindsym $mod+Control+8 workspace 18
+bindsym $mod+Control+9 workspace 19
+bindsym $mod+Control+0 workspace 20
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+Control+1 move container to workspace 11
+bindsym $mod+Shift+Control+2 move container to workspace 12
+bindsym $mod+Shift+Control+3 move container to workspace 13
+bindsym $mod+Shift+Control+4 move container to workspace 14
+bindsym $mod+Shift+Control+5 move container to workspace 15
+bindsym $mod+Shift+Control+6 move container to workspace 16
+bindsym $mod+Shift+Control+7 move container to workspace 17
+bindsym $mod+Shift+Control+8 move container to workspace 18
+bindsym $mod+Shift+Control+9 move container to workspace 19
+bindsym $mod+Shift+Control+0 move container to workspace 20
+
+bindcode $mod+Mod2+79 workspace 7
+bindcode $mod+Mod2+80 workspace 8
+bindcode $mod+Mod2+81 workspace 9
+bindcode $mod+Mod2+83 workspace 4
+bindcode $mod+Mod2+84 workspace 5
+bindcode $mod+Mod2+85 workspace 6
+bindcode $mod+Mod2+87 workspace 1
+bindcode $mod+Mod2+88 workspace 2
+bindcode $mod+Mod2+89 workspace 3
+bindcode $mod+Mod2+90 workspace 10
+bindcode $mod+Mod2+Control+79 workspace 17
+bindcode $mod+Mod2+Control+80 workspace 18
+bindcode $mod+Mod2+Control+81 workspace 19
+bindcode $mod+Mod2+Control+83 workspace 14
+bindcode $mod+Mod2+Control+84 workspace 15
+bindcode $mod+Mod2+Control+85 workspace 16
+bindcode $mod+Mod2+Control+87 workspace 11
+bindcode $mod+Mod2+Control+88 workspace 12
+bindcode $mod+Mod2+Control+89 workspace 13
+bindcode $mod+Mod2+Control+90 workspace 20
+
+bindcode $mod+Mod2+Shift+79 move container to workspace 7
+bindcode $mod+Mod2+Shift+80 move container to workspace 8
+bindcode $mod+Mod2+Shift+81 move container to workspace 9
+bindcode $mod+Mod2+Shift+83 move container to workspace 4
+bindcode $mod+Mod2+Shift+84 move container to workspace 5
+bindcode $mod+Mod2+Shift+85 move container to workspace 6
+bindcode $mod+Mod2+Shift+87 move container to workspace 1
+bindcode $mod+Mod2+Shift+88 move container to workspace 2
+bindcode $mod+Mod2+Shift+89 move container to workspace 3
+bindcode $mod+Mod2+Shift+90 move container to workspace 10
+bindcode $mod+Mod2+Shift+Control+79 move container to workspace 17
+bindcode $mod+Mod2+Shift+Control+80 move container to workspace 18
+bindcode $mod+Mod2+Shift+Control+81 move container to workspace 19
+bindcode $mod+Mod2+Shift+Control+83 move container to workspace 14
+bindcode $mod+Mod2+Shift+Control+84 move container to workspace 15
+bindcode $mod+Mod2+Shift+Control+85 move container to workspace 16
+bindcode $mod+Mod2+Shift+Control+87 move container to workspace 11
+bindcode $mod+Mod2+Shift+Control+88 move container to workspace 12
+bindcode $mod+Mod2+Shift+Control+89 move container to workspace 13
+bindcode $mod+Mod2+Shift+Control+90 move container to workspace 20
+
+workspace  1 output $output_left
+workspace  2 output $output_left
+workspace  3 output $output_left
+
+workspace  4 output $output_center
+workspace  5 output $output_center
+workspace  6 output $output_center
+
+workspace  7 output $output_right
+workspace  8 output $output_right
+workspace  9 output $output_right
+
+workspace 10 output $output_curv
+

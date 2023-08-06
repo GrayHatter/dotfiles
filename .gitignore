@@ -5,6 +5,7 @@
 !/.config
 /.config/*
 !/.config/nvim
+!/.config/hsh
 
 !/.config/alacritty
 /.config/alacritty/themes
@@ -16,3 +17,5 @@
 # git update-index ../../.gitconfig --skip-worktree 
 /.bin/twitch-stream
 # git update-index ../../.bin/twitch-stream --skip-worktree 
+
+**/*_history

@@ -1,15 +1,16 @@
+#!/usr/bin/env sh
+# should exist in the base system
 apk add neovim git doas less nmap curl gzip rsync drill
-
+# shell stuff
 apk add zsh bat htop 
-
+# fun shell stuff
 apk add fzf fzf-bash-plugin fzf-zsh-plugin 
-
 apk add git-zsh-completion bat-zsh-completion curl-zsh-completion openrc-zsh-completion
-
+# http server
 apk add nginx certbot uwsgi uwsgi-python3
-
+# mail server 
 apk add dovecot dovecot-pigeonhole-plugin postfix spamassassin postgrey opendkim opendkim-utils 
-
+# security
 apk add fail2ban
-
+# the only db you need
 apk add redis 

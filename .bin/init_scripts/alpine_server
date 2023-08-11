@@ -1,4 +1,4 @@
-apk add neovim git doas less nmap curl gzip rsync
+apk add neovim git doas less nmap curl gzip rsync drill
 
 apk add zsh bat htop 
 

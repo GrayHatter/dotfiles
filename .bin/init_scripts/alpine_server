@@ -1,0 +1,15 @@
+apk add neovim git doas less nmap curl gzip rsync
+
+apk add zsh bat htop 
+
+apk add fzf fzf-bash-plugin fzf-zsh-plugin 
+
+apk add git-zsh-completion bat-zsh-completion curl-zsh-completion openrc-zsh-completion
+
+apk add nginx certbot uwsgi uwsgi-python3
+
+apk add dovecot dovecot-pigeonhole-plugin postfix spamassassin postgrey opendkim opendkim-utils 
+
+apk add fail2ban
+
+apk add redis 

@@ -144,8 +144,8 @@ augroup END
 "set foldlevel=99
 
 
-nnoremap <expr> <Leader>s <SID>change_word_under_cursor()
-vnoremap <expr> <Leader>s <SID>change_word_under_cursor()
+nnoremap <expr> <Leader>h <SID>change_word_under_cursor()
+vnoremap <expr> <Leader>h <SID>change_word_under_cursor()
 fu! s:change_word_under_cursor() abort
     let word = expand('<cword>')
     let subwords = split(word, word =~# '_' ? '_' : '\ze\u')
@@ -158,8 +158,8 @@ nnoremap <silent> <Leader>c :s/FIXME<CR>
 " Clear some force of habits
 vnoremap <C-c> "+y
 
-" nnoremap <C-n>     :tabnew<CR>
-" inoremap <C-n>     <Esc>:tabnew<CR>
+nnoremap <C-n>     :enew<cr>
+inoremap <C-n>     <C-o>:enew<cr>
 
 
 " FZF
@@ -186,9 +186,12 @@ nnoremap <expr> <Home> col(".") == match(getline("."), "\\S") + 1 ? '0' : '^'
 inoremap <expr> <Home> col(".") == match(getline("."), "\\S") + 1 ? '<C-O>0' : '<C-O>^'
 nnoremap Y y$
 nnoremap <Leader>v :vs<CR>
-nnoremap <Leader>h :vs<CR>
+"nnoremap <Leader>h :vs<CR>
 nnoremap <Leader>t 0d$
 nnoremap <silent> <Leader>w :write<CR>
+
+"easy search replace 
+nnoremap <Leader>s :%s/
 
 " delete bufffer
 nnoremap <silent> <Leader>d :bp\|sp\|bn\|bd<CR>
@@ -201,7 +204,7 @@ nnoremap <silent> <Leader>lc :let @+ = expand("%").':'.line(".")."  `".getline("
 nnoremap <silent> <Leader>ln :let @+ = expand("%").':'.line(".")<CR>
 
 " seriously... fuck you q
-nnoremap <silent> q <Nop>
+"nnoremap <silent> q <Nop>
 
 " Quick nav
 nnoremap <C-Left> <C-W><Left>

@@ -9,7 +9,7 @@ CAM_FPS=50
 CAM_RES="1920x1080"
 
 # Load kmod if needed
-if [ ! -f $D_VID ];  then
+if [ ! -e $D_VID ];  then
     sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2
 fi
 

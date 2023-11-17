@@ -1,0 +1,24 @@
+unsetopt correct_all
+unsetopt correct
+setopt nobanghist
+
+export HISTSIZE=50000
+
+DISABLE_CORRECTION="true"
+setopt no_bare_glob_qual
+setopt INC_APPEND_HISTORY
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
+source .profile
+
+alias feh=feh -Fd
+alias vi=nvim
+alias vim=nvim
+
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then;
+    dbus-launch --exit-with-session sway
+fi
+

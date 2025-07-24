@@ -10,8 +10,11 @@ input type:keyboard {
 # Output is moved into the `hostname` file
 include ~/.config/sway/`hostname`
 
+include /etc/sway/config.d/*
+
 for_window [shell="xwayland"] title_format "[X] %title"
 for_window [instance="mpc"] fullscreen enable
+for_window [app_id="mpv"] floating enable
 for_window [instance="pavucontrol"] floating enable
 # some apps don't enjoy being tiled
 for_window [instance="feh"] floating enable
@@ -20,7 +23,13 @@ for_window [instance="steam"] floating enable
 
 set $idle-ten 'swaymsg "output * dpms off"'
 set $idle-resume 'swaymsg "output * dpms on"'
-exec swayidle -w timeout 600 $idle-ten resume $idle-resume
+exec swayidle -w timeout 1200 $idle-ten resume $idle-resume
+exec swayidle -w timeout 1800 "ssh bright gpio low 3" resume "ssh bright gpio high 3"
+
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
 # Style
 font pango:Source Code Pro Regular 10
@@ -58,7 +67,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 ## exec keybinds
 bindsym $mod+Shift+m    exec 'exec urxvt -hold -e /usr/bin/pianobar'
-bindsym $mod+d          exec wofi -S run
+bindsym $mod+d          exec zmenu
+bindsym $mod+Shift+d    exec wofi -S run
 bindsym $mod+p          exec pavucontrol
 bindsym $mod+Shift+s    exec screenshot.sh
 

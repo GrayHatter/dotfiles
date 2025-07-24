@@ -1,8 +1,13 @@
+# [ exports ]
+
+
 # [ aliases ]
 alias ls='ls --color=auto'
 alias la='ls -la'
 alias ll='ls -l'
 alias vim='nvim'
+alias vi='nvim'
+alias cat='bat'
 
 
 # [ set ] didn't provide any save data

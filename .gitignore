@@ -18,4 +18,20 @@
 /.bin/twitch-stream
 # git update-index ../../.bin/twitch-stream --skip-worktree 
 
+# these are various binaries or other files I don't want to include 
+.bin/build_utox
+.bin/cmd_scrot
+.bin/delayed-screenshot.sh
+.bin/fonts
+.bin/ghimon
+.bin/git-commit-to
+.bin/imgzen
+.bin/lfub
+.bin/utox_signer
+.bin/zmenu
+.config/nvim/nvim-cmp-conf.vim
+.config/nvim/spell/
+.config/sway/tower
+.zshrc.local
+
 **/*_history

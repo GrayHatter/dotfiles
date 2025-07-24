@@ -5,4 +5,4 @@ set $output_curv   HDMI-A-1
 output $output_left   res 2560x1440@144Hz pos    0 1440
 output $output_center res 2560x1440@144Hz pos 2560 1440
 output $output_right  res 2560x1440@144Hz pos 5120 1440
-output $output_curv   res 3440x1440@60Hz  pos  650    0
+output $output_curv   res 3440x1440@60Hz  pos    0    0

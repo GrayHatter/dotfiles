@@ -1,8 +1,0 @@
-# [ aliases ]
-alias ls='ls --color=auto'
-alias la='ls -la'
-alias ll='ls -l'
-alias vim='nvim'
-
-
-# [ set ] didn't provide any save data

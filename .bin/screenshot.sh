@@ -3,7 +3,7 @@ SSHMOUNT="/home/grayhatter/i"
 SITE="https://gr.ht/i"
 
 
-grim -g "`slurp`" /tmp/screenshot.png
+grim -g "`slurp && sleep 0.8`" /tmp/screenshot.png
 
 if [ $# -gt "0" ]; then
 	if mount | grep "$SSHMOUNT"; then

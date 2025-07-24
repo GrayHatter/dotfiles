@@ -23,11 +23,3 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #export FZF_DEFAULT_COMMAND="fd -H . $HOME"
 
-alias lighton='ssh 192.168.1.204 "echo 9 | sudo tee /sys/class/gpio/gpio{5,6,13}/value"'
-alias lightoff='ssh 192.168.1.204 "echo 0 | sudo tee /sys/class/gpio/gpio{5,6}/value"'
-
-alias feh=feh -Fd
-
-alias vi=nvim
-alias vim=nvim
-

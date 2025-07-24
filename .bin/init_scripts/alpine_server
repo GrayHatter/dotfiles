@@ -9,7 +9,7 @@ apk add git-zsh-completion bat-zsh-completion curl-zsh-completion openrc-zsh-com
 # http server
 apk add nginx certbot uwsgi uwsgi-python3
 # mail server 
-apk add dovecot dovecot-pigeonhole-plugin postfix spamassassin postgrey opendkim opendkim-utils 
+apk add dovecot dovecot-pigeonhole-plugin postfix spamassassin opendkim opendkim-utils 
 # security
 apk add fail2ban
 # the only db you need

@@ -1,0 +1,37 @@
+[window]
+opacity = 0.89
+
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[colors.normal]
+cyan = "#d65d0e"
+#forground = "#ffffff"
+white = "#ffffff"
+
+[colors.selection]
+background = "CellForeground"
+text = "CellBackground"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "SourceCodePro"
+
+[scrolling]
+history = 10000
+
+[general]
+import = ["/home/grayhatter/.config/alacritty/themes/themes/remedy_dark.toml"]
+
+[terminal]
+
+[terminal.shell]
+program = "/usr/bin/hsh"
+
